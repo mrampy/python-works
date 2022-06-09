@@ -2,18 +2,17 @@ import sys
 import os
 from PIL import Image
 
-path = sys.argv[1]
-directory = sys.argv[2]
+jpg = sys.argv[1]
+png = sys.argv[2]
 
-if not os.path.exists(directory):
-    os.makedirs(directory)
+if not os.path.exists(png):
+    os.makedirs(png)
     
 
-for filename in os.listdir(path):
+for filename in os.listdir(jpg):
   clean_name = os.path.splitext(filename)[0]
-  img = Image.open(f'{path}{filename}')
-  #added the / in case user doesn't enter it. You may want to check for this and add or remover it. 
-  img.save(f'{directory}/{clean_name}.png', 'png')
+  img = Image.open(f'{jpg}/{filename}')
+  img.save(f'{png}/{clean_name}.png')
   print('all done!')
 
 
